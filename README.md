@@ -22,7 +22,7 @@ Task 2: Create a proposal
 
 const receiverAddress = '0x2F9f3505CbXXXXX'; // Type one of your accounts, minted tokens will be sent by governor contract
 const transferCalldata = myToken.interface.encodeFunctionData('mintToken', [receiverAddress,12]); // mint 12 wei to receiver address
-let result = await myGovernor.createProposal(['0x632a7b41dC250AD354FfB6C344d39f7BE807D365'],[0], [transferCalldata], 'Mint 12 wei to  receiver address',);
+let result = await myGovernor.createProposal(['token contract address'],[0], [transferCalldata], 'Mint 12 wei to  receiver address',);
 let receiptValue = await result.wait();
 console.log(receiptValue.events.filter((x) => {return x.event == "ProposalCreated"})); // print ProposalCreated event on console this will return the proposal id
 const pID = ethers.BigNumber.from([type the proposal id]);
@@ -35,7 +35,7 @@ myGovernor.castVote(pID, '1'); // 0: abstain 1: Support 2: Against
 Task 4: Execute Proposal
 
 const descriptionHash = ethers.utils.id('Mint 12 wei to brave acc');
-await myGovernor.executeProposal(pID,['0x632a7b41dC250AD354FfB6C344d39f7BE807D365'],[0],[transferCalldata],descriptionHash);
+await myGovernor.executeProposal(pID,[token contract address],[0],[transferCalldata],descriptionHash);
 
 
 
