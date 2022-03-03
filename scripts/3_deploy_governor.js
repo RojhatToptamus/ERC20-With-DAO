@@ -5,7 +5,7 @@ async function main() {
     const MyGovernor = await ethers.getContractFactory("MyGovernor");
     console.log("Deploying MyGovernor");
     // OZ Governor without timelock
-    const myGovernor = await MyGovernor.deploy("0x632a7b41dC250AD354FfB6C344d39f7BE807D365","0x0000000000000000000000000000000000000000");
+    const myGovernor = await MyGovernor.deploy([deployed token contract address],"0x0000000000000000000000000000000000000000");
     const deployedGovernor  = await myGovernor.deployed()
     console.log("MyGovernor deployed to:", myGovernor.address);
   
