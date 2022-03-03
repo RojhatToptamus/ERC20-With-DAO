@@ -17,7 +17,6 @@ contract MyGovernor is Governor, GovernorCompatibilityBravo, GovernorVotes, Gove
         GovernorTimelockControl(_timelock)
     {}
     
-    // Test public functions
     function createProposal(address[] memory targets, uint256[] memory values, bytes[] memory calldatas, string memory description)
         public returns (uint256)
     {
@@ -42,7 +41,7 @@ contract MyGovernor is Governor, GovernorCompatibilityBravo, GovernorVotes, Gove
     }
 
     
-
+    // do not keep it public!
     function _cancelProposal(address[] memory targets, uint256[] memory values, bytes[] memory calldatas, bytes32 descriptionHash)
         public  returns (uint256)
     {   
@@ -50,7 +49,6 @@ contract MyGovernor is Governor, GovernorCompatibilityBravo, GovernorVotes, Gove
         return _cancel(targets,values,calldatas,descriptionHash);
     }
 
-    //// test functions finish    
 
     function votingDelay() public pure override returns (uint256) {
         return 5; // 1 day 6375 // 22 5 dakika
