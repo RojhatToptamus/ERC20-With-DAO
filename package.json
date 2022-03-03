@@ -1,0 +1,16 @@
+{
+  "name": "hardhat-project",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/hardhat-defender": "^1.6.0",
+    "@openzeppelin/hardhat-upgrades": "^1.14.0",
+    "dotenv": "^16.0.0",
+    "ethers": "^5.5.4",
+    "hardhat": "^2.8.4",
+    "web3": "^1.7.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0"
+  }
+}
