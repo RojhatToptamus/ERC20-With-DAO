@@ -17,6 +17,7 @@ Task 1: Mint Some Tokens for voting power and delegate voting power
 await myToken.mintToken(accounts[0].address, ethers.utils.parseUnits('1.0', 'ether'));
 await myGovernor.delegates(accounts[0].address); // returns delegated accounts
 await myGovernor.delegate(accounts[0].address) // delegate to yourself
+await myToken.transferOwnership([Governor Contract Address]); // transfer token contract ownership to the governor
 
 Task 2: Create a proposal
 
