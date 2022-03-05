@@ -35,7 +35,7 @@ myGovernor.castVote(pID, '1'); // 0: abstain 1: Support 2: Against
 
 Task 4: Execute Proposal
 
-const descriptionHash = ethers.utils.id('Mint 12 wei to brave acc');
+const descriptionHash = ethers.utils.id('Mint 12 wei to  receiver address');
 await myGovernor.executeProposal(pID,[token contract address],[0],[transferCalldata],descriptionHash);
 
 
