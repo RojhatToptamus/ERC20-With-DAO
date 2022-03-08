@@ -1,6 +1,5 @@
-# Basic ERC20 Token Contract with a Governor Contract
-Try running some of the following tasks:
-
+# Basic ERC20 Token Contract with a Governor Contract(Without a Timelock Controller Contract)
+Try running the following tasks or execute "npx hardhat test" command to run hardhat test file(test/governor-test.js)
 ```shell
 npx hardhat run --network rinkeby scripts/1_deploy_token.js
 npx hardhat run --network rinkeby scripts/3_deploy_governor.js
@@ -23,7 +22,7 @@ Task 2: Create a proposal
 
 const receiverAddress = '0x2F9f3505CbXXXXX'; // Type one of your accounts, minted tokens will be sent by governor contract
 const transferCalldata = myToken.interface.encodeFunctionData('mintToken', [receiverAddress,12]); // mint 12 wei to receiver address
-let result = await myGovernor.createProposal(['token contract address'],[0], [transferCalldata], 'Mint 12 wei to  receiver address',);
+let result = await myGovernor.propose(['token contract address'],[0], [transferCalldata], 'Mint 12 wei to  receiver address',);
 let receiptValue = await result.wait();
 console.log(receiptValue.events.filter((x) => {return x.event == "ProposalCreated"})); // print ProposalCreated event on console this will return the proposal id
 const pID = ethers.BigNumber.from([type the proposal id]);
@@ -36,7 +35,7 @@ myGovernor.castVote(pID, '1'); // 0: abstain 1: Support 2: Against
 Task 4: Execute Proposal
 
 const descriptionHash = ethers.utils.id('Mint 12 wei to  receiver address');
-await myGovernor.executeProposal(pID,[token contract address],[0],[transferCalldata],descriptionHash);
+await myGovernor.execute(pID,[token contract address],[0],[transferCalldata],descriptionHash);
 
 
 
