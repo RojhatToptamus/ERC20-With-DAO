@@ -1,4 +1,12 @@
 # Basic ERC20 Token Contract with a Governor Contract(Without a Timelock Controller Contract)
+This project has a basic ERC20 Contract which can be governed by the Governor Contract and it does not have a timelock controller. Please check RojhatToptamus/ERC20-With-DAO-Timelock repository for the version with a Timelock Controller.
+
+Used Technologies
+Solidity, Hardat, Ether.js, Openzeppelin 
+
+Note: These codes may have some vulnerabilities so please use them on your own responsibility and do not deploy them to the main network!
+
+
 Try running the following tasks or execute "npx hardhat test" command to run hardhat test file(test/governor-test.js)
 ```shell
 npx hardhat run --network rinkeby scripts/1_deploy_token.js
